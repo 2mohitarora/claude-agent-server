@@ -7,11 +7,9 @@ import {
 } from '@anthropic-ai/claude-agent-sdk'
 import { type ServerWebSocket } from 'bun'
 
-import { SERVER_PORT, WORKSPACE_DIR_NAME } from './const'
+import { SERVER_PORT } from './const'
 import { handleMessage } from './message-handler'
 import { type QueryConfig, type WSOutputMessage } from './message-types'
-
-const workspaceDirectory = join(homedir(), WORKSPACE_DIR_NAME)
 
 // Single WebSocket connection (only one allowed)
 let activeConnection: ServerWebSocket | null = null
@@ -46,7 +44,6 @@ async function processMessages() {
             permissionMode: 'bypassPermissions',
             allowDangerouslySkipPermissions: true,
             settingSources: ['local'],
-            cwd: workspaceDirectory,
             stderr: data => {
                 if (activeConnection) {
                     const output: WSOutputMessage = {
