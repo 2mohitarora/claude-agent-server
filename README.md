@@ -51,57 +51,6 @@ The server code is in `packages/server/`:
 - `message-handler.ts` - Message processing logic
 - `const.ts` - Configuration constants
 
-**Example:**
-
-```bash
-curl -X POST http://localhost:3000/config \
-  -H "Content-Type: application/json" \
-  -d '{
-    "systemPrompt": "You are a helpful assistant.",
-    "allowedTools": ["read_file", "write_file"],
-    "anthropicApiKey": "sk-ant-...",
-    "model": "claude-3-5-sonnet-20241022",
-    "agents": {
-      "myAgent": {
-        "name": "My Custom Agent",
-        "description": "A custom agent"
-      }
-    }
-  }'
-```
-
-**Response:**
-
-```json
-{
-  "success": true,
-  "config": {
-    "systemPrompt": "You are a helpful assistant.",
-    "allowedTools": ["read_file", "write_file"],
-    "agents": { ... }
-  }
-}
-```
-
-#### GET /config
-
-Get the current configuration:
-
-```bash
-curl http://localhost:3000/config
-```
-
-**Response:**
-
-```json
-{
-  "config": {
-    "systemPrompt": "You are a helpful assistant.",
-    "allowedTools": ["read_file", "write_file"]
-  }
-}
-```
-
 ### WebSocket API
 
 #### Connecting
@@ -250,16 +199,6 @@ claude-agent-server/
 ├── package.json          # Root package.json (workspaces)
 └── README.md
 ```
-
-## Testing
-
-### Web Test Client
-
-Open `http://localhost:3000/` in your browser to access the built-in test client. You can:
-
-- Send messages to Claude
-- See real-time responses
-- View the full JSON structure of SDK messages
 
 **API Key Priority:**
 
