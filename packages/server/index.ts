@@ -43,7 +43,7 @@ async function processMessages() {
         const options: Options = {
             permissionMode: 'bypassPermissions',
             allowDangerouslySkipPermissions: true,
-            settingSources: ['local'],
+            settingSources: ['project'],
             stderr: data => {
                 if (activeConnection) {
                     const output: WSOutputMessage = {
