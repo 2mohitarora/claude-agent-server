@@ -6,11 +6,6 @@
 
 import { ClaudeAgentClient } from './src/index'
 
-if (!process.env.ANTHROPIC_API_KEY) {
-  console.error('❌ ANTHROPIC_API_KEY environment variable is required')
-  process.exit(1)
-}
-
 async function main() {
   const client = new ClaudeAgentClient()
 
