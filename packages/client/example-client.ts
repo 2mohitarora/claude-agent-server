@@ -27,7 +27,7 @@ async function main() {
           message: {
             role: 'user',
             content:
-              'Please read "input.txt", reverse its content, and save it to a new file named "output.txt".',
+              'Hello, how are you?',
           },
         },
       },
